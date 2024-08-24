@@ -1,0 +1,3 @@
+[submodule "mclangcn"]
+	path = mclangcn
+	url = https://github.com/ff98sha/mclangcn
