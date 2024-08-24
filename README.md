@@ -1,6 +1,6 @@
 # MCLangCN-Hant
 
-Optimized Chinese translations for Minecraft: Bedrock Edition .
+Optimized Chinese translations for Minecraft: Bedrock Edition.
 
 Source repository: [ff98sha/mclangcn](https://github.com/ff98sha/mclangcn)
 
