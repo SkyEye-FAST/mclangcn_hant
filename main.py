@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 """MCLangCN-Hant Converter"""
 
+from shutil import copyfile
 from pathlib import Path
 import zipfile as zf
 
@@ -33,8 +34,9 @@ if __name__ == "__main__":
         mclang.dump(lang_output, w)
 
     # Compress resource pack
-    pack_path = P / "Bedrock.Translation.Patch.ST.zip"
-    with zf.ZipFile(pack_path, "w", compression=zf.ZIP_DEFLATED, compresslevel=9) as z:
+    zip_path = P / "Bedrock.Translation.Patch.ST.zip"
+    mcpack_path = P / "Bedrock.Translation.Patch.ST.mcpack"
+    with zf.ZipFile(zip_path, "w", compression=zf.ZIP_DEFLATED, compresslevel=9) as z:
         for file in [
             "manifest.json",
             "loading_messages.json",
@@ -46,3 +48,4 @@ if __name__ == "__main__":
         z.write(LANG_ZH_CN_PATH, arcname="texts/zh_CN.lang")
         z.write(LANG_OUTPUT_PATH, arcname="texts/zh_TW.lang")
         z.write(LANG_OUTPUT_DIR / "languages.json", arcname="texts/languages.json")
+    copyfile(zip_path, mcpack_path)
